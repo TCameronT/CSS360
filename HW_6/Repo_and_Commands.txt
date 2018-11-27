@@ -1,0 +1,28 @@
+Docker Hub Account: https://hub.docker.com/u/w917645/
+
+
+Commands:
+
+vim Dockerfile
+
+Dockerfile contents::
+FROM ubuntu
+RUN apt-get update
+RUN apt-get install -y apache2
+RUN apt-get install -y apache2-utils
+RUN apt-get clean
+EXPOSE 80
+ENTRYPOINT ["apache2ctl"]
+CMD ["-DFOREGROUND"]
+
+docker build -t="mywebserver" .
+
+docker run -d -p 80:80 mywebserver
+
+docker login --username=w917645
+
+docker images
+
+docker tag bfff1672941e w917645/csc_webserver:initialbuild
+
+docker push w917645/csc_webserver

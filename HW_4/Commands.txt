@@ -1,0 +1,21 @@
+Cameron Thomas
+W917645
+
+Part_1
+ssh username@orca.st.usm.edu #Logging into the orca server
+
+ssh-keygen -t rsa #Creating a key pair that will be saved in ~/.ssh
+
+ssh studentID@10.18.3.148 mkdir -p .ssh #Creating a ~/.ssh directory on the 10.18.3.148 server
+
+
+Part_2
+cat .ssh/id_rsa.pub | ssh studentID@10.18.3.148 'cat >> .ssh/authorized_keys'
+#This appends the public key on the Orca server to the authorized_keys on the other server
+
+chmod -R 700 .ssh #This sets the .ssh directory to only be writeable by only the owner
+
+Part_3
+logout #Going back to the Orca server
+
+ssh studentID@10.18.3.148 #Verifying that the password-less authentication works

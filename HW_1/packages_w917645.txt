@@ -1,0 +1,7 @@
+After signing in as root perform these commands:
+
+# yum -y groups install "GNOME Desktop"
+- Installs all the necessary packages
+
+# startx
+- This reloads CentOS and will start the desktop environment
